@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Clone your project') {
+            steps {
+                echo 'Clone your git repo'
+                git branch: 'main', credentialsId: 'd21bbce9-2a61-4adf-a000-ac8c8adb6be8', url: 'https://github.com/vacky224/tools.git'
+                sh 'ls'
+            }
+        }
+        stage('Build your project') {
+            steps {
+                echo 'Build your project from Git'
+            }
+        }
+    }
+}
